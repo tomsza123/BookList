@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* font-size: 10px; */
+    font-size: 16px;
+}
+
+body{
+    font-size: 1.6em;
+}
+
+.addBook{
+    max-width: 500px;
+    margin:0 auto;
+    background:#f1ef56;
+    position:relative;
+    top:5vh;
+    border:1px solid #000000;
+    min-height: 50vh;
+  
+    .star-cb-group {
+      /* remove inline-block whitespace */
+      font-size: 0;
+      /* flip the order so we can use the + and ~ combinators */
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      /* the hidden clearer */
+    }
+    .star-cb-group * {
+      font-size: 2rem;
+    }
+    .star-cb-group > input {
+      display: none;
+    }
+    .star-cb-group > input + label {
+      /* only enough room for the star */
+      display: inline-block;
+      text-indent: 9999px;
+      width: 1em;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .star-cb-group > input + label:before {
+      display: inline-block;
+      text-indent: -9999px;
+      content: "☆";
+      color: #888;
+    }
+    .star-cb-group > input:checked ~ label:before, .star-cb-group > input + label:hover ~ label:before, .star-cb-group > input + label:hover:before {
+      content: "★";
+      color: #e52;
+    }
+    .star-cb-group > .star-cb-clear + label {
+      text-indent: -9999px;
+      width: .5em;
+      margin-left: -.5em;
+    }
+    .star-cb-group > .star-cb-clear + label:before {
+      width: .5em;
+    }
+    .star-cb-group:hover > input + label:before {
+      content: "☆";
+      color: #888;
+      text-shadow: none;
+    }
+    .star-cb-group:hover > input + label:hover ~ label:before, .star-cb-group:hover > input + label:hover:before {
+      content: "★";
+      color: #e52;
+      text-shadow: 0 0 1px #333;
+    }
+  
+  }
+  label, input, textarea, select{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    height: 30px;
+  }
+  button{
+    margin:0 auto;
+    display: block;
+    margin-top:35px;
+    padding: 10px 35px;
+    background-color: #e52;
+  }
+  
