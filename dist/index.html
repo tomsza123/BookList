@@ -2,47 +2,62 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Tytuł</title>
+    <title>BookList</title>
   </head>
   <body>
+    <div class="opacity"></div>
     <div class="container">
-      <button id="showBooks">Show Books</button>
-      <button id="addBooks">Add Books</button>
-      <div class="addBook">
-        <form class="form" action="#">
-          <label for="title">Title of book:</label>
-          <input type="text" name="title">
-          <label for="author">Author:</label>
-          <input type="text" name="author">
-          <label for="category">Category:</label>
-          <select name="category" id="category-select">
-            <option value="" disabled selected hidden>Choose Category...</option>
-            <option value="Criminal">Criminal</option>
-            <option value="Sci-Fi">Sci-Fi</option>
-            <option value="Poetry">Poetry</option>
-            <option value="Drama">Drama</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Science">Science</option>
-          </select>
-          <label for="priority">Priority:
-              <span class="star-cb-group">
-                <input type="radio" id="rating-5" name="rating" value="5" />
-                <label for="rating-5"></label>
-                <input type="radio" id="rating-4" name="rating" value="4" />
-                <label for="rating-4"></label>
-                <input type="radio" id="rating-3" name="rating" value="3" />
-                <label for="rating-3"></label>
-                <input type="radio" id="rating-2" name="rating" value="2" />
-                <label for="rating-2"></label>
-                <input type="radio" id="rating-1" name="rating" value="1" checked="checked"/>
-                <label for="rating-1"></label>
-                <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" />
-                <label for="rating-0"></label>
+      <header>BookList</header>
+      <div class="unread"></div>
+      <button class="btn mainmenu" id="showBooks">Show Books</button>
+      <button class="btn mainmenu" id="addBooks">Add Books</button>
+
+      <div class="addBook window" style="display: none">
+        <h1>Add book<span class="material-icons close">clear</span></h1>
+        <form class="form">
+          <input type="text" placeholder="Title of book" name="title">
+          <input type="text" placeholder="Author" name="author">
+          <select name="category" placeholder="Category" id="category-select"></select>          
+            <fieldset>
+              <p>Choose priority</p>
+              <span class="star-cb-group">              
+                <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+                <input type="radio" id="rating-4" name="rating" value="4" /><label for="rating-4">4</label>
+                <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+                <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+                <input type="radio" id="rating-1" name="rating" value="1" checked="checked" /><label for="rating-1">1</label>
+                <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
               </span>
-          </label>          
+              <button class="btn" id="addCategory">Add new category</button>
+            </fieldset>
+          <button class="btn" id="addBook">Add book</button>
         </form>
-        <button id="addBook">Add book</button>   
-        <button id="close">Close</button>     
+      </div>
+
+      <div class="showBooks window" style="display: none">
+        <h1>List of books<span class="material-icons close">clear</span></h1>
+        <section class="md-ui component-data-table">
+          <div class="main-table-wrapper">
+            <table class="main-table-content">
+              <thead class="data-table-header">
+                <tr class="data-table-row">
+                  <th value='title'>Title</th>
+                  <th value='author'>Author</th>
+                  <th value='category'>Category</th>
+                  <th value='priority'>Priority</th>
+                  <th value='dateAdded'>Date Added</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+                <tbody class="bookTable data-table-content"></tbody>                    
+            </table>
+          </div>
+
+        </section>
+          
+
+        
+        <p id="counter"></p>
       </div>
     </div>
     
